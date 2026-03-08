@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-const nodemailer = require("nodemailer");
 const sendEmail = require("./ulits/sendEmail");
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,14 +9,6 @@ const port = process.env.PORT || 5000;
 // middlewere
 app.use(express.json());
 app.use(cors());
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
 
 const uri = `mongodb+srv://${process.env.USER_DB}:${process.env.PASSWORD_DB}@cluster0.oibnujx.mongodb.net/?appName=Cluster0`;
 console.log(process.env.USER_DB, process.env.PASSWORD_DB);
