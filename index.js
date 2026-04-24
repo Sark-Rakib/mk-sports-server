@@ -280,7 +280,7 @@ async function run() {
           createdAt: new Date(),
         });
 
-        // send email (try/catch inside sendEmail already)
+        // send email (try/catch inside sendEmail alreadyyy)
         await sendEmail(order);
 
         res.send({ success: true, data: result });
